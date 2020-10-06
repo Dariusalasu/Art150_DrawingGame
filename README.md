@@ -14,4 +14,4 @@ After opening the project in your browser, you will be presented
 
 ## ➤ Future Work
 
-[![npm version](https://badge.fury.io/js/Art150_DrawingGame.svg)](1.0.0)
+[![npm version](https://badge.fury.io/js/Art150_DrawingGame.svg)]('1.0.0')

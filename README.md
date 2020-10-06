@@ -13,5 +13,5 @@ After opening the project in your browser, you will be presented
 // interactive game.
 
 ## ➤ Future Work
-
-[![npm version](https://badge.fury.io/js/Art150_DrawingGame.svg)]('1.0.0')
+The game should display the correct information to the screen on launch, instead of the console. For this version the game information is only displayed on the console output. This is the link to the project on the p5.js web editor, with the console displayed.
+<a href="https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg" target="_blank"><img src="#p5js-logo-small_svg__b" alt="P5.js Logo" width="240" height="180" border="10" /></a>

@@ -13,4 +13,4 @@ After opening the project in your browser, you will be presented
 // interactive game.
 
 ## ➤ Future Work
-The game should display the correct information to the screen on launch, instead of the console. For this version the game information is only displayed on the console output. [![This]](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg) is the link to the project on the p5.js web editor, with the console displayed.
+The game should display the correct information to the screen on launch, instead of the console. For this version the game information is only displayed on the console output. [This](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg) is the link to the project on the p5.js web editor, with the console displayed.

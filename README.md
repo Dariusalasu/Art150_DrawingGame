@@ -7,7 +7,12 @@ This 'Drawing Game' is a simple game in which the player draws lines to guide th
 ___
 ## ➤ Gameplay Instructions
 After opening the project in your browser, you will be presented with the game screen displaying a few objects:
-* This
+- The green ball is the object that you want to reach the target.
+- The red balls are the objects that you do not want touching the target.
+
+The 
+- The blue house is the target for the player. This is where you will be aiming to get the green ball.
+- Lines can be drawn for the balls to bounce off of.
 // This project explores different aspects of P5.js.
 // This is a game which the player draws lines to guide the correct ball
 // into the "endzone". The purpose of this project is to explore different

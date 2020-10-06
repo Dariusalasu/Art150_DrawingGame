@@ -7,7 +7,7 @@ This 'Drawing Game' is a simple game in which the player draws lines to guide th
 ___
 ## ➤ Gameplay Instructions
 After opening the project in your browser, you will be presented with the game screen displaying a few objects:
-- The
+'-' This
 // This project explores different aspects of P5.js.
 // This is a game which the player draws lines to guide the correct ball
 // into the "endzone". The purpose of this project is to explore different

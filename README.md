@@ -15,5 +15,14 @@ After opening the project in your browser, you will be presented with the game s
 To start the game, press 'space'.
 The restart the game, press 'r'.
 ___
+## ➤ Installation Guide
+### Online Editor
+Using the online editor is by far the easiest and simplist way to run the game. As of 10/7/2020, the Drawing Game uses the console to print out messages to the user. You can access this the online version by [using this link](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg).
+### Local Repository
+The following instructions will be specifically for VSCode. These instruction will allow you to launch a local server with a running version of the game.
+1. The game zip file must be downloaded as a zip and extracted in your working directory or you can clone the repository.
+2. The live server extension must be installed on VSCode to continue. You can find the extention here:
+<a href="https://github.com/ritwickdey/vscode-live-server" target="_blank"><img src="https://github.com/ritwickdey/vscode-live-server/blob/master/images/icon.png" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+___
 ## ➤ Future Work
 The game should display the correct information to the screen on launch, instead of the console. For this version the game information is only displayed on the console output. [This](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg) is the link to the project on the p5.js web editor, with the console displayed.

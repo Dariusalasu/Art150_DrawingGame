@@ -21,7 +21,7 @@ Using the online editor is by far the easiest and simplist way to run the game. 
 ### Local Repository
 The following instructions will be specifically for VSCode. These instruction will allow you to launch a local server with a running version of the game.
 1. The game zip file must be downloaded as a zip and extracted in your working directory or you can clone the repository.
-2. The live server extension must be installed on VSCode to continue. You can find the extention here: [![Ritwickdey VSCode Live Server](https://github.com/ritwickdey/vscode-live-server/blob/master/images/icon.png)](https://github.com/ritwickdey/vscode-live-server)
+2. The live server extension must be installed on VSCode to continue. You can find the extention [here](https://github.com/ritwickdey/vscode-live-server)
 ___
 ## ➤ Future Work
 The game should display the correct information to the screen on launch, instead of the console. For this version the game information is only displayed on the console output. [This](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg) is the link to the project on the p5.js web editor, with the console displayed.

@@ -9,15 +9,11 @@ ___
 After opening the project in your browser, you will be presented with the game screen displaying a few objects:
 - The green ball is the object that you want to reach the target.
 - The red balls are the objects that you do not want touching the target.
-
-The 
 - The blue house is the target for the player. This is where you will be aiming to get the green ball.
 - Lines can be drawn for the balls to bounce off of.
-// This project explores different aspects of P5.js.
-// This is a game which the player draws lines to guide the correct ball
-// into the "endzone". The purpose of this project is to explore different
-// functions and different inputs in order to create a visual and
-// interactive game.
+
+To start the game, press 'space'.
+The restart the game, press 'r'.
 ___
 ## ➤ Future Work
 The game should display the correct information to the screen on launch, instead of the console. For this version the game information is only displayed on the console output. [This](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg) is the link to the project on the p5.js web editor, with the console displayed.

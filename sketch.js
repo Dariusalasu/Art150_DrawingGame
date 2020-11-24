@@ -9,57 +9,48 @@
 // interactive game.
 
 // GLOBAL VARIABLES - CUSTOM CHANGES
-let staRadius = 10;
-let screenW = 500;
-let screenH = 500;
+var staRadius = 10;
+var screenW = 500;
+var screenH = 500;
 
-class Ball {
-  // constructor:
-  // Creates instance of ball object, storing ball information provided in parameters
-  constructor(r, xp, yp, id) {
-    this._radius = r;
-    this._xPos = xp;
-    this._yPos = yp;
-    this._xSpeed = 0;
-    this._ySpeed = 0;
-    this._id = id;
-    
-    switch(id) {
-      case 1: // Green ball
-        this._color = 'green';
-        break;
-      case 2: // Red ball
-        this._color = 'red';
-        break;
-    } // End of switch case
-    
-    while(abs(this._xSpeed) < 1) {
-      this._xSpeed = random(-5, 5);
-    }
-    while(abs(this._ySpeed) < 1) {
-      this._ySpeed = random(-5, 5);
-    }
-  } // End of constructor
-  
+function Ball(r, xp, yp, id) {
+  // Variable declarations for object Ball
+  this._radius = r;
+  this._xPos = xp;
+  this._yPos = yp;
+  this._xSpeed = 0;
+  this._ySpeed = 0;
+  this._id = id;
+  this._color = (id == 1) ? 'green' : 'red';
+
+  // Set |xSpeed| >= 1
+  while(abs(this._xSpeed) < 1) {
+    this._xSpeed = random(-5, 5);
+  }
+
+  // Set |ySpeed| >= 1
+  while(abs(this._ySpeed) < 1) {
+    this._ySpeed = random(-5, 5);
+  }
+
   // draw:
   // Method to draw and display ball object
-  draw() {
+  this.draw = function() {
     stroke(0);
     strokeWeight(0.5);
     ellipseMode(RADIUS);
     fill(this._color);
     ellipse(this._xPos, this._yPos, this._radius);
-  } // End of draw
-  
+  }; // End of draw
+
   // move:
   // Method to move ball object
-  // End of class Ball
-  move() {
+  this.move = function() {
     let velocity = createVector(this._xSpeed, this._ySpeed); // Velocity vector
-    
-    // Check if ball is hitting house and determine game outcome
-    if(createVector(this._xPos-house.getXPos(), this._yPos-house.getYPos()).mag() < 
-       (1.5 * staRadius) + velocity.mag()) {
+
+    // Check if ball is hitting the house and determine game outcome
+    if(createVector(this._xPos-house.getXPos(), this._yPos-house.getYPos()).mag() <
+      (1.5 * staRadius) + velocity.mag()) {
       switch(this._id) {
         case 1: // Green Ball (player wins)
           console.log("Player wins!\nPress 'enter' to continue");
@@ -74,7 +65,7 @@ class Ball {
       noLoop();
       return;
     }
-    
+
     // Check if ball is hitting walls and invert direction
     if(this._xPos > width - staRadius || this._xPos < staRadius) {
       this._xSpeed *= -1;
@@ -82,7 +73,7 @@ class Ball {
     if(this._yPos > height - staRadius || this._yPos < staRadius) {
       this._ySpeed *= -1;
     }
-    
+
     // Loop through each line
     for(let i = 0; i < lines.length; i++) {
       // Vectors of ends of line
@@ -91,12 +82,10 @@ class Ball {
       
       let a = (vLine2.y - vLine1.y); // Change in y
       let b = (vLine2.x - vLine1.x); // Change in x
-      if(a/b > 0) {
-        b = abs(b);
-      } else {
-        b = -1*abs(b);
-      }
+
+      (a/b > 0) ? b = abs(b) : b = -1*abs(b);
       a = abs(a);
+
       let c = (vLine2.y * b) - (vLine2.x * a);
       
       // Find Distance d between ball and line
@@ -116,15 +105,15 @@ class Ball {
           this._xPos -= 2*this._xSpeed;
           this._yPos -= 2*this._ySpeed;
           
-          let ballPos = createVector(this._xPos, this._yPos); // Ball position vector
+          // let ballPos = createVector(this._xPos, this._yPos); // Ball position vector
           
           // Vector for initial direction ball is travelling
-          let initialDir = createVector(ballPos.x-velocity.x*10, ballPos.y-velocity.y*10);
+          // let initialDir = createVector(ballPos.x-velocity.x*10, ballPos.y-velocity.y*10);
           
           // Vector orthogonal to line
-          let lineNormal = (vLine2.copy().sub(vLine1)).normalize(); // Normal vector of line
-          let lambda = (ballPos.copy().sub(vLine1)).dot(lineNormal); // Scalar of orthogonal
-          let linePos = lineNormal.copy().mult(lambda).add(vLine1); // Vector of line position
+          // let lineNormal = (vLine2.copy().sub(vLine1)).normalize(); // Normal vector of line
+          // let lambda = (ballPos.copy().sub(vLine1)).dot(lineNormal); // Scalar of orthogonal
+          // let linePos = lineNormal.copy().mult(lambda).add(vLine1); // Vector of line position
           
           // Calculate line normal
           let lineDelta = (vLine2.copy().sub(vLine1)).normalize();
@@ -132,7 +121,7 @@ class Ball {
           
           // Calculate reflection of initial velocity
           //let initVel = createVector(velocity.x, velocity.y);
-          let vNorm = createVector(linePos.x-normal.x*100, linePos.y-normal.y*100);
+          // let vNorm = createVector(linePos.x-normal.x*100, linePos.y-normal.y*100);
           let finalVel = velocity.copy();
           finalVel.reflect(normal.copy());
 
@@ -143,7 +132,7 @@ class Ball {
           //console.log("finalVel: " + finalVel.x + ", " + finalVel.y);
 
           // Vector for final direction ball is travelling
-          let finalDir = createVector(ballPos.x+finalVel.x*10, ballPos.y+finalVel.y*10);
+          // let finalDir = createVector(ballPos.x+finalVel.x*10, ballPos.y+finalVel.y*10);
           
           // *** TESTING ***
           //stroke('blue');
@@ -163,7 +152,7 @@ class Ball {
           //noLoop();
         }
       }
-    }
+    } // End of for loop
     
     this._xPos += this._xSpeed;
     this._yPos += this._ySpeed;
@@ -174,68 +163,54 @@ class Ball {
     if(this._yPos < 0 || this._yPos > screenH) {
       this._yPos = screenH/2;
     }
-  } // End of move
-} // End of class Ball
+  }; // End of move
+} // End of Ball
 
-class Line {
-  // constructor:
-  // Creates instance of line, storing coordinates of lines provided
-  constructor(x1, y1, x2, y2) {
-    this._x1 = x1;
-    this._y1 = y1;
-    this._x2 = x2;
-    this._y2 = y2;
-  } // End of constructor
-  
-  // draw;
+function Line(x1, y1, x2, y2) {
+  // Variable declarations for object Line
+  this._x1 = x1;
+  this._y1 = y1;
+  this._x2 = x2;
+  this._y2 = y2;
+
+  // draw:
   // Draws the line
-  draw() {
+  this.draw = function() {
     stroke(255);
     strokeWeight(3);
     line(this._x1, this._y1, this._x2, this._y2);
-  } // End of display
-  
-  // Getter for x1
-  getX1() { return this._x1; } // End of getter for x1
-  
-  // Getter for y1
-  getY1() { return this._y1; } // End of getter for y1
-  
-  // Getter for x2
-  getX2() { return this._x2; } // End of getter for x2
-  
-  // Getter for y2
-  getY2() { return this._y2; } // End of getter for y2
-} // End of class Line
+  }; // End of draw
 
-class House {
-  // constructor:
-  // Creates instance of house
-  constructor() {
-    let rand = random(15, 485);
-    switch(int(random(1, 5))) {
-      case 1: // Top or bottom
-        this._xPos = rand;
-        this._yPos = 15;
-        break;
-      case 2: // Bottom
-        this._xPos = rand;
-        this._yPos = 485;
-        break;
-      case 3: // Left
-        this._xPos = 15;
-        this._yPos = rand;
-        break;
-      case 4: // Right
-        this._xPos = 485;
-        this._yPos = rand;
-        break;
-    }
-  } // End of constructor
+  this.getX1 = function() { return this._x1; }; // Getter for x1
+  this.getY1 = function() { return this._y1; }; // Getter for y1
+  this.getX2 = function() { return this._x2; }; // Getter for x2
+  this.getY2 = function() { return this._y2; }; // Getter for y2
+}; // End of Line
+
+function House() {
+  let rand = random(15, 485);
+  switch(int(random(1, 5))) {
+    case 1: // Top or bottom
+      this._xPos = rand;
+      this._yPos = 15;
+      break;
+    case 2: // Bottom
+      this._xPos = rand;
+      this._yPos = 485;
+      break;
+    case 3: // Left
+      this._xPos = 15;
+      this._yPos = rand;
+      break;
+    case 4: // Right
+      this._xPos = 485;
+      this._yPos = rand;
+      break;
+  }
   
   // draw:
   // Draws the house
-  draw() {
+  this.draw = function() {
     stroke(0);
     strokeWeight(2);
     fill('blue');
@@ -244,25 +219,22 @@ class House {
              this._xPos+staRadius+2, this._yPos-staRadius,
              this._xPos, this._yPos-(staRadius*1.5));
   } // End of draw
-  
-  // Getter for xPos
-  getXPos() { return this._xPos; } // End of getter for xPos
-  
-  // Getter for yPos
-  getYPos() { return this._yPos; } // End of getter for yPos
-} // End of class House
 
-let level; // Game level
-let endOfLevel;
-let rule;
-let opac;
+  this.getXPos = function() { return this._xPos; }; // Getter for xPos
+  this.getYPos = function() { return this._yPos; }; // Getter for yPos
+}
 
-let lines = []; // Array to hold lines
-let balls = []; // Array to hold balls
-let house; // Variable to hold house (target zone)
+var level; // Game level
+var endOfLevel;
+var rule;
+var opac;
 
-let pressing = true;
-let tmpMX, tmpMY; // Temporary mouse coordinates
+var lines = []; // Array to hold lines
+var balls = []; // Array to hold balls
+var house; // Variable to hold house (target zone)
+
+var pressing = true;
+var tmpMX, tmpMY; // Temporary mouse coordinates
 
 // setup:
 // Called at startup.

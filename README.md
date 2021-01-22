@@ -16,8 +16,10 @@ To start the game, press 'space'.
 The restart the game, press 'r'.
 ___
 ## ➤ Installation Guide
+### Github Host
+You can easily access a hosted version of the game [using this link](https://dariusalasu.github.io/Art150_DrawingGame/) available at [https://dariusalasu.github.io/Art150_DrawingGame/](https://dariusalasu.github.io/Art150_DrawingGame/). As of 10/7/2020, the Drawing Game uses the console to print out messages to the user. You can access the console by right clicking and clicking inspect (Ctrl+Shift+I for windows users).
 ### Online Editor
-Using the online editor is by far the easiest and simplist way to run the game. As of 10/7/2020, the Drawing Game uses the console to print out messages to the user. You can access this the online version by [using this link](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg).
+Using the online editor is by far the easiest and simplist way to run the game while also being able to view the source code. As of 10/7/2020, the Drawing Game uses the console to print out messages to the user. You can access this the online version by [using this link](https://editor.p5js.org/dariusalasu/sketches/sSWfJSRrg).
 ### Local Repository
 The following instructions will be specifically for VSCode. These instruction will allow you to launch a local server with a running version of the game.
 1. The game zip file must be downloaded as a zip and extracted in your working directory or you can clone the repository.
